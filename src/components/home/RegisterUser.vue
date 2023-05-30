@@ -1,24 +1,35 @@
 <template>
   <div class="home">
-    <h3>
-      {{ biendenivda1 }}
-      <br />
-    </h3>
-    <p>
-      {{ beforeText }}
-      <strong>{{ emphasizedText }}</strong>
-      {{ middleText }}
-      <br />
-      {{ endText }}
-    </p>
+    <div class="bg-amber-900 topBackGround w-full">
+      <div class="flex flex-wrap flex-col">
+        <div class="flex-auto w-64 mx-auto">
+          <h3
+            class="text-4xl font-bold mb-16 lg:mb-6 lg:mt-28 mt-8 text-white animate__animated animate__fadeIn"
+          >
+            {{ biendenivda1 }}
+            <br />
+          </h3>
+        </div>
+        <br />
+        <div class="mx-auto">
+          <!-- Aquí se renderiza el componente FormInput.vue -->
+          <FormInput />
+        </div>
+        <!-- Otros elementos del formulario de registro -->
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import FormInput from "../shared/FormInput.vue";
 
 export default defineComponent({
-  name: "HomePage",
+  components: {
+    FormInput,
+  },
+  name: "RegisterUser",
   data() {
     return {
       /* Bienvenida */
