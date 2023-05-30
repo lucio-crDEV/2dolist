@@ -12,6 +12,13 @@
       {{ endText }}
     </p>
   </div>
+  <div class="absolute lg:top-96 lg:mt-36">
+    <img
+      class="flex-auto rounded-full relative lg:bottom-96 bottom-56 mx-auto animate__animated lg:px-0 px-6 animate__fadeIn drop-shadow-xl z-0 scale-75"
+      alt="registrate"
+      src="@/assets/working.jpg"
+    />
+  </div>
 </template>
 
 <script lang="ts">
