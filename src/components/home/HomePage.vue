@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-amber-900 topBackGround w-full">
+  <div class="bg-amber-900/60 topBackGround w-full">
     <div class="flex flex-wrap gap-64">
       <div>
         <img
@@ -16,7 +16,7 @@
           <br />
         </h3>
         <h2
-          class="text-2xl lg:font-semibold mb-4 text-blue-200 animate__animated animate__fadeIn"
+          class="text-2xl lg:font-semibold mb-4 text-blue-100 animate__animated animate__fadeIn"
         >
           {{ bienvenida2 }}
         </h2>

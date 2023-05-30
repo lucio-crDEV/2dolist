@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <div class="bg-amber-900 topBackGround w-full">
+    <div class="bg-amber-900/60 topBackGround w-full">
       <div class="flex flex-wrap flex-col">
         <div class="flex-auto mx-auto">
           <h3
-            class="relative right-96 text-5xl font-bold mb-16 lg:mb-8 lg:mt-16 mt-8 text-white animate__animated animate__pulse animate__fast animate__delay-1s"
+            class="relative right-96 text-5xl font-bold mb-16 lg:mb-8 lg:mt-6 mt-8 text-white animate__animated animate__pulse animate__fast animate__delay-1s"
           >
             {{ biendenivda1 }}
           </h3>
@@ -16,7 +16,7 @@
           <br />
         </div>
         <br />
-        <div class="relative right-4 mx-auto z-30">
+        <div class="relative right-8 mx-auto z-30 mb-16">
           <!-- Aquí se renderiza el componente FormInput.vue -->
           <FormInput />
         </div>
@@ -24,13 +24,13 @@
     </div>
   </div>
 
-  <div class="absolute inset-x-0 bottom-0">
-    <FooterPage />
+  <div class="absolute inset-x-0 -bottom-2 text-center">
+    <FooterPage class="relative top-32" />
   </div>
 
-  <div class="absolute lg:top-80 lg:right-0 h-32">
+  <div class="absolute lg:top-80 lg:right-0 h-40">
     <img
-      class="flex-auto rounded-2xl relative lg:bottom-80 mt-12 bottom-56 lg:right-72 mx-auto animate__animated lg:px-0 px-6 animate__fadeIn drop-shadow-xl z-0 scale-75"
+      class="flex-auto rounded-2xl relative mx-auto px-6 animate__fadeIn drop-shadow-xl z-0 scale-50 bottom-56 animate__animated lg:bottom-80 lg:right-60 lg:px-0 md:bottom-80 md:right-48 md:px-0"
       alt="registrate"
       src="@/assets/registrate.jpg"
     />

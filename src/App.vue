@@ -1,11 +1,23 @@
 <template>
-  <nav class="bg-amber-900">
+  <nav class="bg-amber-900/60">
     <div
-      class="animate__animated animate__fadeInDown animate__delay-1s text-2xl"
+      class="animate__animated animate__fadeInDown animate__delay-1s lg:2text-xl md:text-xl text-red-700 font-semibold"
     >
-      <router-link class="cursor-pointer" to="/">Inicio</router-link> |
-      <router-link class="cursor-pointer" to="/login">Login</router-link> |
-      <router-link class="cursor-pointer" to="/register">Registro</router-link>
+      <router-link class="hover:text-red-600 text-red-700 cursor-pointer" to="/"
+        >Inicio</router-link
+      >
+      |
+      <router-link
+        class="hover:text-red-600 text-red-700 cursor-pointer"
+        to="/login"
+        >Login</router-link
+      >
+      |
+      <router-link
+        class="hover:text-red-600 text-red-700 cursor-pointer"
+        to="/register"
+        >Registro</router-link
+      >
     </div>
   </nav>
   <!-- Add the style and icon you want using the String format -->
@@ -30,16 +42,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #e08624;
 }
 
 nav {
   padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #e08624;
 }
 
 nav a.router-link-exact-active {

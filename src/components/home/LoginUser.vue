@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="bg-amber-900 topBackGround w-full">
+    <div class="bg-amber-900/60 topBackGround w-full">
       <div class="flex flex-wrap flex-col">
         <div class="flex-auto mx-auto">
           <h3

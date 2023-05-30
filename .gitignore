@@ -154,4 +154,4 @@ dist
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Vue,Node
 
-package-lock.json
+.package-lock.json
