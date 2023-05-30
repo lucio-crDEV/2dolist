@@ -21,24 +21,13 @@
         required
       />
     </div>
-    <div class="input-container">
-      <label>{{ confirmPasswordLabel }}</label>
-      <input
-        v-model="confirmPasswordValue"
-        type="password"
-        :placeholder="confirmPasswordPlaceholder"
-        @input="validate"
-        required
-      />
-    </div>
     <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
-    <button
-      class="submit-button"
-      @click="subscribe"
-      :disabled="hasErrors || isAnyFieldEmpty"
-    >
-      Suscribirse
+    <button class="submit-button" @click="login" :disabled="hasErrors">
+      Iniciar sesión
     </button>
+    <div class="register-link">
+      ¿No tienes cuenta? <router-link to="/register">Regístrate</router-link>
+    </div>
   </div>
 </template>
 
@@ -54,20 +43,12 @@ export default defineComponent({
     const passwordLabel = "Contraseña";
     const passwordValue = ref("");
     const passwordPlaceholder = "Contraseña";
-    const confirmPasswordLabel = "Confirmar Contraseña";
-    const confirmPasswordPlaceholder = "Confirmar Contraseña";
-    const confirmPasswordValue = ref("");
     const errorMessage = ref("");
 
     const validate = () => {
       const emailRegex = new RegExp(emailPattern);
       if (!emailRegex.test(emailValue.value)) {
         errorMessage.value = "Correo electrónico inválido";
-        return;
-      }
-
-      if (passwordValue.value !== confirmPasswordValue.value) {
-        errorMessage.value = "Las contraseñas no coinciden";
         return;
       }
 
@@ -78,17 +59,9 @@ export default defineComponent({
       return errorMessage.value !== "";
     });
 
-    const isAnyFieldEmpty = computed(() => {
-      return (
-        emailValue.value === "" ||
-        passwordValue.value === "" ||
-        confirmPasswordValue.value === ""
-      );
-    });
-
-    const subscribe = () => {
-      // Lógica para suscribirse
-      alert("Solicitud enviada");
+    const login = () => {
+      // Lógica para iniciar sesión
+      alert("Iniciando sesión");
     };
 
     return {
@@ -99,14 +72,10 @@ export default defineComponent({
       passwordLabel,
       passwordValue,
       passwordPlaceholder,
-      confirmPasswordLabel,
-      confirmPasswordPlaceholder,
-      confirmPasswordValue,
       errorMessage,
       validate,
       hasErrors,
-      isAnyFieldEmpty,
-      subscribe,
+      login,
     };
   },
 });
@@ -161,5 +130,16 @@ input {
   border-radius: 5px;
   cursor: pointer;
   outline: none;
+}
+
+.register-link {
+  color: #fff;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.register-link a {
+  color: #24aee0;
+  cursor: pointer;
 }
 </style>

@@ -25,7 +25,7 @@
   </div>
   <div
     id="bajada"
-    class="lg:mt-48 mt-32 mb-12 lg:mx-0 mx-6 animate__animated animate__fadeInUp animate__delay-3s"
+    class="lg:mt-48 mt-32 mb-12 lg:mx-0 mx-6 animate__animated animate__fadeInUp animate__slow animate__delay-1s"
   >
     <div>
       <p class="text-3xl text-white font-semibold">

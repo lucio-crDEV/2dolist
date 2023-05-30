@@ -3,9 +3,9 @@
     <div
       class="animate__animated animate__fadeInDown animate__delay-1s text-2xl"
     >
-      <router-link to="/">Inicio</router-link> |
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/register">Registro</router-link>
+      <router-link class="cursor-pointer" to="/">Inicio</router-link> |
+      <router-link class="cursor-pointer" to="/login">Login</router-link> |
+      <router-link class="cursor-pointer" to="/register">Registro</router-link>
     </div>
   </nav>
   <!-- Add the style and icon you want using the String format -->
