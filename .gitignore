@@ -155,3 +155,15 @@ dist
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Vue,Node
 
 .package-lock.json
+
+
+.firebase/
+.github/
+.public/
+firebase.json
+firestore.indexes.json
+firestore/
+functions/
+public/img/
+public/svg/
+src/config/
