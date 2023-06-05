@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-amber-900/60 topBackGround w-full">
+  <div class="bg-amber-900/60 h-80 max-w-full">
     <div class="flex flex-wrap gap-64">
       <div class="appLogoWrapper">
         <img
@@ -8,15 +8,15 @@
           src="https://i.imgur.com/kTaZYdhl.jpg"
         />
       </div>
-      <div class="flex-auto tituloWraper">
+      <div class="lg:flex-auto tituloWraper text-center">
         <h3
-          class="text-4xl font-bold mb-16 text-white animate__animated animate__fadeIn lg:mx-56"
+          class="text-3xl font-bold mb-16 text-white animate__animated animate__fadeIn lg:mx-56"
         >
           {{ biendenivda1 }}
           <br />
         </h3>
         <h2
-          class="bienvenida2 text-2xl font-semibold mb-4 text-blue-100 animate__animated animate__fadeIn"
+          class="bienvenida2 relative right-96 text-xl font-semibold mb-4 text-blue-100 animate__animated animate__fadeIn hidden lg:block"
         >
           {{ bienvenida2 }}
         </h2>
@@ -25,7 +25,7 @@
   </div>
   <div
     id="bajada"
-    class="animate__animated animate__fadeInUp animate__slow animate__delay-1s"
+    class="animate__animated animate__fadeInUp animate__slow animate__delay-1s py-4"
   >
     <div>
       <p class="text-3xl text-white font-semibold">
@@ -52,7 +52,7 @@
   </div>
   <GoUpButton
     v-if="showGoUpButton"
-    class="relative bottom-20 right-2 animate__animated animate__fadeInUp animate__delay-1s"
+    class="relative bottom-36 scale-50 right-2 animate__animated animate__fadeInUp animate__delay-1s"
     @click="scrollToTop"
   />
   <FooterPage />
@@ -115,22 +115,6 @@ export default defineComponent({
 </script>
 
 <style>
-.tituloWraper {
-  position: relative;
-  top: 6rem;
-  left: 28rem;
-  max-width: 72rem;
-}
-
-.bienvenida2 {
-  padding: 0 24rem;
-  position: relative;
-  top: 2rem;
-  left: 1rem;
-  max-width: 72rem;
-  font-size: 2rem;
-}
-
 .appLogoWrapper {
   position: absolute;
   left: 16rem;
@@ -178,13 +162,11 @@ export default defineComponent({
     position: relative;
     top: 2rem;
     left: 2rem;
-    width: auto;
     padding: 0;
     margin: 0;
   }
 
   .bienvenida2 {
-    padding: 0 2rem;
     font-size: 1.5rem;
   }
 
@@ -199,10 +181,6 @@ export default defineComponent({
   }
 }
 
-.topBackGround {
-  height: 32rem;
-}
-
 #bajada {
   background: rgba(36, 174, 224, 0.15);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.4);
@@ -210,9 +188,5 @@ export default defineComponent({
   -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  margin: 0 12rem 0 12rem;
-  padding: 4rem 0rem;
-  position: relative;
-  bottom: 2rem;
 }
 </style>
