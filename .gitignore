@@ -167,3 +167,6 @@ functions/
 public/img/
 public/svg/
 src/config/
+
+#serviceaccount
+serviceAccountKey.json

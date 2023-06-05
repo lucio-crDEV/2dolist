@@ -1,7 +1,7 @@
 <template>
-  <nav class="bg-amber-900/60">
+  <nav class="bg-amber-900/60 z-50">
     <div
-      class="animate__animated animate__fadeInDown animate__delay-1s lg:2text-xl md:text-xl text-red-700 font-semibold"
+      class="animate__animated animate__fadeInDown animate__delay-1s lg:2text-xl md:text-xl text-red-700 font-semibold select-none"
     >
       <router-link class="hover:text-red-600 text-red-700 cursor-pointer" to="/"
         >Inicio</router-link
@@ -26,7 +26,7 @@
     icon="fa-solid fa-arrow-up"
     size="2xl"
   />
-  <router-view />
+  <router-view class="z-10" />
 </template>
 
 <style>

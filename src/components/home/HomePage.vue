@@ -3,20 +3,20 @@
     <div class="flex flex-wrap gap-64">
       <div>
         <img
-          class="flex-auto rounded-2xl px-6 animate__animated animate__fadeIn animate__slower drop-shadow-xl mx-auto relative lg:top-24 bottom-56 lg:left-72 lg:px-0"
+          class="appLogo flex-auto rounded-2xl animate__animated animate__fadeIn animate__slower drop-shadow-xl"
           alt="App Logo"
-          src="@/assets/logo.jpg"
+          src="/img/logo.jpg"
         />
       </div>
-      <div class="flex-auto w-60 lg:relative lg:right-12 lg:top-20">
+      <div class="flex-auto tituloWraper">
         <h3
-          class="text-4xl font-bold mb-16 text-white animate__animated animate__fadeIn lg:mt-28 mt-8 lg:mx-56"
+          class="text-4xl font-bold mb-16 text-white animate__animated animate__fadeIn lg:mx-56"
         >
           {{ biendenivda1 }}
           <br />
         </h3>
         <h2
-          class="text-2xl lg:font-semibold mb-4 text-blue-100 animate__animated animate__fadeIn"
+          class="bienvenida2 text-2xl font-semibold mb-4 text-blue-100 animate__animated animate__fadeIn"
         >
           {{ bienvenida2 }}
         </h2>
@@ -25,7 +25,7 @@
   </div>
   <div
     id="bajada"
-    class="lg:mt-48 mt-32 mb-12 lg:mx-0 mx-6 animate__animated animate__fadeInUp animate__slow animate__delay-1s"
+    class="animate__animated animate__fadeInUp animate__slow animate__delay-1s"
   >
     <div>
       <p class="text-3xl text-white font-semibold">
@@ -46,7 +46,7 @@
       <img
         alt="Vue logo"
         class="mx-auto rounded-2xl lg:w-1/2 lg:px-0 px-6 drop-shadow-xl"
-        src="@/assets/focus.jpg"
+        src="/img/focus.jpg"
       />
     </div>
   </div>
@@ -59,9 +59,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onMounted } from "vue";
 import FooterPage from "../shared/FooterPage.vue";
 import GoUpButton from "../shared/GoUpButton.vue";
+import { app } from "@/config/firebaseConfig";
 
 export default defineComponent({
   name: "HomePage",
@@ -73,7 +74,7 @@ export default defineComponent({
       bienvenida2:
         "Simplifica tu vida y mejora tu productividad con facilidad.",
       /* texto descriptivo */
-      beforeText: "Descubre una forma ",
+      beforeText: "Conoce una forma ",
       emphasizedText: "sencilla y eficiente",
       middleText: "de organizar tus tareas",
       endText:
@@ -103,6 +104,12 @@ export default defineComponent({
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
+    console.log(app); // Verifica que app esté siendo importado correctamente
+
+    onMounted(() => {
+      console.log("Componente HomePage montado");
+      // Realizar tareas adicionales...
+    });
   },
   beforeUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -111,6 +118,50 @@ export default defineComponent({
 </script>
 
 <style>
+.tituloWraper {
+  position: relative;
+  top: 6rem;
+  left: 32rem;
+  max-width: 72rem;
+}
+.bienvenida2 {
+  padding: 0 24rem;
+  position: relative;
+  top: 2rem;
+  left: 1rem;
+  max-width: 72rem;
+  size: 2rem;
+}
+.appLogo {
+  position: absolute;
+  left: 12rem;
+  bottom: 18rem;
+}
+
+@media only screen and (max-width: 1575px) {
+  .tituloWraper {
+    position: relative;
+    top: 2rem;
+    left: 12rem;
+    width: 20rem;
+    padding: 0 8rem;
+    margin: 0;
+  }
+  .bienvenida2 {
+    padding: 0 16rem;
+  }
+  .appLogo {
+    position: absolute;
+    left: 8rem;
+    bottom: 12rem;
+    transform: scale(0.75);
+  }
+  #bajada {
+    position: relative;
+    bottom: 12rem;
+  }
+}
+
 .topBackGround {
   height: 32rem;
 }
@@ -121,8 +172,9 @@ export default defineComponent({
   -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  margin-left: 12rem;
-  margin-right: 12rem;
+  margin: 0 12rem 0 12rem;
   padding: 4rem 0rem;
+  position: relative;
+  bottom: 2rem;
 }
 </style>

@@ -1,5 +1,19 @@
 {
   "projects": {
-    "default": "dolist-6fd11"
-  }
+    "default": "dolist-6fd11",
+    "2dolisto": "dolist-6fd11"
+  },
+  "targets": {
+    "dolist-6fd11": {
+      "hosting": {
+        "development": [
+          "todolist-project"
+        ],
+        "2dolisto": [
+          "dolist-6fd11"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
