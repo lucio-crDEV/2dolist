@@ -3,20 +3,22 @@
     <div class="flex flex-wrap gap-64">
       <div class="appLogoWrapper">
         <img
-          class="appLogo flex-auto rounded-2xl scale-75 animate__animated animate__fadeIn animate__slower drop-shadow-xl"
+          class="appLogo flex-auto rounded-full scale-75 lg:scale-150 lg:relative lg:left-48 lg:top-12 animate__animated animate__fadeIn animate__slower drop-shadow-xl"
           alt="App Logo"
           src="https://i.imgur.com/kTaZYdhl.jpg"
         />
       </div>
-      <div class="lg:flex-auto tituloWraper text-center">
+      <div
+        class="lg:flex-auto tituloWraper text-center lg:px-80 lg:relative lg:left-52 lg:top-16"
+      >
         <h3
-          class="text-3xl font-bold mb-16 text-white animate__animated animate__fadeIn lg:mx-56"
+          class="text-3xl font-bold mb-16 text-white animate__animated animate__fadeIn lg:mx-56 lg:text-4xl lg:relative lg:left-20"
         >
           {{ biendenivda1 }}
           <br />
         </h3>
         <h2
-          class="bienvenida2 relative right-96 text-xl font-semibold mb-4 text-blue-100 animate__animated animate__fadeIn hidden lg:block"
+          class="bienvenida2 relative left-6 text-2xl font-semibold mb-4 text-blue-100 lg:font-bold lg:mx-32 animate__animated animate__fadeIn hidden lg:block"
         >
           {{ bienvenida2 }}
         </h2>
@@ -25,7 +27,7 @@
   </div>
   <div
     id="bajada"
-    class="animate__animated animate__fadeInUp animate__slow animate__delay-1s py-4"
+    class="animate__animated animate__fadeInUp animate__slow animate__delay-1s py-4 lg:relative lg:-top-6 lg:mx-48"
   >
     <div>
       <p class="text-3xl text-white font-semibold">
@@ -52,7 +54,7 @@
   </div>
   <GoUpButton
     v-if="showGoUpButton"
-    class="relative bottom-36 scale-50 right-2 animate__animated animate__fadeInUp animate__delay-1s"
+    class="relative bottom-36 lg:bottom-20 scale-50 right-2 animate__animated animate__fadeInUp animate__delay-1s"
     @click="scrollToTop"
   />
   <FooterPage />
@@ -128,6 +130,7 @@ export default defineComponent({
   display: block;
   border-radius: 0.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 9999px;
 }
 
 @media only screen and (max-width: 1575px) {

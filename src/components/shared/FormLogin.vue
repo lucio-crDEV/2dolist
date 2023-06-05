@@ -22,7 +22,9 @@
         required
       />
     </div>
-    <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <div v-if="errorMessage" class="error-message hover:bg-blue-600">
+      {{ errorMessage }}
+    </div>
     <button class="submit-button" @click="login" :disabled="hasErrors">
       Iniciar sesión
     </button>

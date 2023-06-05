@@ -3,15 +3,15 @@
   <div class="home">
     <div class="bg-amber-900/60 topBackGround w-full max-h-80">
       <div class="flex flex-wrap flex-col">
-        <div class="flex-auto mx-auto">
+        <div class="flex-auto mx-auto lg:relative lg:right-96">
           <h3
-            class="bienvenida1 text-white relative left-2 font-bold mb-16 mt-8 text-4xl lg:right-96 lg:text-5xl lg:mb-8 lg:mt-6 animate__animated animate__pulse animate__fast animate__delay-1s"
+            class="bienvenida1 text-white relative left-2 lg:right-0 font-bold mb-16 mt-8 text-4xl lg:text-5xl lg:mb-8 lg:mt-6 animate__animated animate__pulse animate__fast animate__delay-1s"
           >
             {{ biendenivda1 }}
           </h3>
-          <div class="relative lg:right-80 bottom-6">
+          <div class="relative bottom-6">
             <h3
-              class="bienvenida2 text-3xl font-semibold mt-8 text-right text-white animate__animated animate__pulse animate__fast animate__delay-2s"
+              class="bienvenida2 text-3xl font-semibold mt-8 text-right text-white lg:left-32 animate__animated animate__pulse animate__fast animate__delay-2s"
             >
               {{ biendenivda2 }}{{ biendenivda3 }}
             </h3>
@@ -19,9 +19,12 @@
           <br />
         </div>
         <br />
-        <div class="relative lg:right-8 lg:mx-auto z-30 lg:mb-16 w-screen px-6">
+        <div
+          class="relative lg:mx-auto z-30 lg:mb-16 w-screen px-6 lg:w-52 lg:right-44 lg:bottom-14"
+        >
           <!-- Aquí se renderiza el componente FormInput.vue -->
           <FormRegister
+            class="lg:w-96"
             label="Nombre"
             v-model="nombre"
             placeholder="Ingrese su nombre"
@@ -32,10 +35,10 @@
     </div>
   </div>
 
-  <div class="absolute lg:top-80 lg:right-0 h-40 hidden">
+  <div class="absolute lg:top-80 lg:right-0 h-40 lg:block hidden">
     <img
       id="imagenRegistro"
-      class="rounded-2xl relative mx-auto px-6 animate__fadeIn drop-shadow-xl z-0 scale-50 bottom-56 animate__animated lg:block lg:bottom-80 lg:right-60 lg:px-0 md:bottom-80 md:right-48 md:px-0"
+      class="rounded-2xl relative mx-auto px-6 animate__fadeIn drop-shadow-xl z-0 scale-50 bottom-56 animate__animated lg:bottom-80 lg:right-60 lg:px-0 md:bottom-80 md:right-48 md:px-0"
       alt="registrate"
       src="https://i.imgur.com/RqLFyi6h.jpg"
     />

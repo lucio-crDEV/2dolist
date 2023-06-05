@@ -1,10 +1,8 @@
 <template>
   <div class="home">
     <div class="bg-amber-900/60 topBackGround w-full max-h-80">
-      <div
-        class="flex flex-wrap flex-col xl:relative xl:bottom-4 xl:gap-y-6 formWrapp"
-      >
-        <div class="flex-auto mx-auto">
+      <div class="flex flex-wrap flex-col xl:relative xl:bottom-4 formWrapp">
+        <div class="flex-auto mx-auto lg:relativa lg:left-96">
           <h3
             class="text-4xl font-bold text-white animate__animated animate__fadeIn relative bottom-4"
           >
@@ -13,20 +11,20 @@
           </h3>
         </div>
         <div
-          class="relative lg:right-8 lg:mx-auto z-30 lg:mb-16 w-screen px-6 mt-4"
+          class="relative z-30 w-screen mt-4 px-6 lg:-mt-12 lg:pb-32 lg:left-32 lg:max-w-96 lg:px-96"
         >
           <!-- Aquí se renderiza el componente FormInput.vue -->
-          <FormLogin />
+          <FormLogin class="lg:w-96" />
         </div>
       </div>
     </div>
   </div>
 
-  <div class="absolute inset-x-0 bottom-0 h-12">
+  <div class="absolute inset-x-0 -bottom-12 h-12">
     <FooterPage />
   </div>
 
-  <div class="imgWrapper">
+  <div class="imgWrapper lg:relative lg:-top-96">
     <img
       class="flex-auto rounded-full animate__animated animate__fadeIn animate__slower drop-shadow-xl z-0"
       alt="registrate"
