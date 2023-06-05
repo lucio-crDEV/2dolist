@@ -26,7 +26,7 @@
     <button class="submit-button" @click="login" :disabled="hasErrors">
       Iniciar sesión
     </button>
-    <div class="register-link">
+    <div class="register-link text-blue-400">
       ¿No tienes cuenta? <router-link to="/register">Regístrate</router-link>
     </div>
   </div>
@@ -62,7 +62,7 @@ export default defineComponent({
 
     const login = () => {
       // Lógica para iniciar sesión
-      alert("Iniciando sesión");
+      alert("Iniciando sesión (En implementación aún con firebase)");
     };
 
     return {
@@ -139,7 +139,7 @@ input {
 }
 
 .register-link a {
-  color: #24aee0;
+  color: #2487ab;
   cursor: pointer;
 }
 </style>

@@ -1,11 +1,11 @@
 <template>
   <div class="bg-amber-900/60 topBackGround w-full">
     <div class="flex flex-wrap gap-64">
-      <div>
+      <div class="appLogoWrapper">
         <img
-          class="appLogo flex-auto rounded-2xl animate__animated animate__fadeIn animate__slower drop-shadow-xl"
+          class="appLogo flex-auto rounded-2xl scale-75 animate__animated animate__fadeIn animate__slower drop-shadow-xl"
           alt="App Logo"
-          src="/img/logo.jpg"
+          src="https://i.imgur.com/kTaZYdhl.jpg"
         />
       </div>
       <div class="flex-auto tituloWraper">
@@ -46,7 +46,7 @@
       <img
         alt="Vue logo"
         class="mx-auto rounded-2xl lg:w-1/2 lg:px-0 px-6 drop-shadow-xl"
-        src="/img/focus.jpg"
+        src="https://i.imgur.com/haVOnFxh.jpg"
       />
     </div>
   </div>
@@ -58,7 +58,7 @@
   <FooterPage />
 </template>
 
-<script lang="ts">
+<script defer lang="ts">
 import { defineComponent, onMounted } from "vue";
 import FooterPage from "../shared/FooterPage.vue";
 import GoUpButton from "../shared/GoUpButton.vue";
@@ -68,12 +68,10 @@ export default defineComponent({
   name: "HomePage",
   data() {
     return {
-      /* Bienvenida */
       biendenivda1:
         "¡Descubre nuestra sorprendente y elegante aplicación de gestión de tareas!",
       bienvenida2:
         "Simplifica tu vida y mejora tu productividad con facilidad.",
-      /* texto descriptivo */
       beforeText: "Conoce una forma ",
       emphasizedText: "sencilla y eficiente",
       middleText: "de organizar tus tareas",
@@ -104,11 +102,10 @@ export default defineComponent({
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
-    console.log(app); // Verifica que app esté siendo importado correctamente
+    console.log(app);
 
     onMounted(() => {
       console.log("Componente HomePage montado");
-      // Realizar tareas adicionales...
     });
   },
   beforeUnmount() {
@@ -121,21 +118,32 @@ export default defineComponent({
 .tituloWraper {
   position: relative;
   top: 6rem;
-  left: 32rem;
+  left: 28rem;
   max-width: 72rem;
 }
+
 .bienvenida2 {
   padding: 0 24rem;
   position: relative;
   top: 2rem;
   left: 1rem;
   max-width: 72rem;
-  size: 2rem;
+  font-size: 2rem;
 }
-.appLogo {
+
+.appLogoWrapper {
   position: absolute;
-  left: 12rem;
-  bottom: 18rem;
+  left: 16rem;
+  top: 4rem;
+  width: 20rem;
+}
+
+.appLogo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 @media only screen and (max-width: 1575px) {
@@ -147,24 +155,54 @@ export default defineComponent({
     padding: 0 8rem;
     margin: 0;
   }
+
   .bienvenida2 {
     padding: 0 16rem;
   }
-  .appLogo {
+
+  .appLogoWrapper {
     position: absolute;
     left: 8rem;
     bottom: 12rem;
     transform: scale(0.75);
   }
+
   #bajada {
     position: relative;
     bottom: 12rem;
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .tituloWraper {
+    position: relative;
+    top: 2rem;
+    left: 2rem;
+    width: auto;
+    padding: 0;
+    margin: 0;
+  }
+
+  .bienvenida2 {
+    padding: 0 2rem;
+    font-size: 1.5rem;
+  }
+
+  .appLogoWrapper {
+    display: none;
+  }
+
+  #bajada {
+    position: relative;
+    bottom: 4rem;
+    margin: 0 2rem;
+  }
+}
+
 .topBackGround {
   height: 32rem;
 }
+
 #bajada {
   background: rgba(36, 174, 224, 0.15);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.4);

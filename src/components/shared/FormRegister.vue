@@ -2,29 +2,34 @@
 <template>
   <div id="wrapper">
     <div class="container">
-      <div class="input-container">
-        <Input
+      <div class="input-container gap-y-1">
+        <label>{{ emailLabel }}</label>
+        <input
           :label="emailLabel"
           v-model="emailValue"
           :placeholder="emailPlaceholder"
           type="email"
-          :pattern="emailPattern"
+          pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+          @input="validate"
         />
       </div>
       <div class="input-container">
-        <Input
+        <label>{{ passwordLabel }}</label>
+        <input
           :label="passwordLabel"
           v-model="passwordValue"
           :placeholder="passwordPlaceholder"
           type="password"
+          @input="validate"
         />
       </div>
       <div class="input-container">
-        <Input
-          :label="confirmPasswordLabel"
+        <label>{{ confirmPasswordLabel }}</label>
+        <input
           v-model="confirmPasswordValue"
           :placeholder="confirmPasswordPlaceholder"
           type="password"
+          @input="validate"
         />
       </div>
       <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
@@ -33,80 +38,61 @@
         @click="subscribe"
         :disabled="hasErrors || isAnyFieldEmpty"
       >
-        Suscribirse
+        Registrarme
       </button>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, computed } from "vue";
-
-export default defineComponent({
-  setup() {
-    const emailLabel = "Correo Electrónico";
-    const emailValue = ref("");
-    const emailPlaceholder = "Correo";
-    const emailPattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$";
-    const passwordLabel = "Contraseña";
-    const passwordValue = ref("");
-    const passwordPlaceholder = "Contraseña";
-    const confirmPasswordLabel = "Confirmar Contraseña";
-    const confirmPasswordPlaceholder = "Confirmar Contraseña";
-    const confirmPasswordValue = ref("");
-    const errorMessage = ref("");
-
-    const validate = () => {
-      const emailRegex = new RegExp(emailPattern);
-      if (!emailRegex.test(emailValue.value)) {
-        errorMessage.value = "Correo electrónico inválido";
-        return;
-      }
-
-      if (passwordValue.value !== confirmPasswordValue.value) {
-        errorMessage.value = "Las contraseñas no coinciden";
-        return;
-      }
-
-      errorMessage.value = "";
-    };
-
-    const hasErrors = computed(() => {
-      return errorMessage.value !== "";
-    });
-
-    const isAnyFieldEmpty = computed(() => {
-      return (
-        emailValue.value === "" ||
-        passwordValue.value === "" ||
-        confirmPasswordValue.value === ""
-      );
-    });
-
-    const subscribe = () => {
-      // Lógica para suscribirse
-      alert("Solicitud enviada");
-    };
-
+<script>
+export default {
+  data() {
     return {
-      emailLabel,
-      emailValue,
-      emailPlaceholder,
-      emailPattern,
-      passwordLabel,
-      passwordValue,
-      passwordPlaceholder,
-      confirmPasswordLabel,
-      confirmPasswordPlaceholder,
-      confirmPasswordValue,
-      errorMessage,
-      validate,
-      hasErrors,
-      isAnyFieldEmpty,
-      subscribe,
+      emailLabel: "Correo Electrónico",
+      emailValue: "",
+      emailPlaceholder: "Correo",
+      passwordLabel: "Contraseña",
+      passwordValue: "",
+      passwordPlaceholder: "Contraseña",
+      confirmPasswordLabel: "Confirmar Contraseña",
+      confirmPasswordValue: "",
+      confirmPasswordPlaceholder: "Confirmar Contraseña",
+      errorMessage: "",
     };
   },
-});
+  computed: {
+    hasErrors() {
+      return this.errorMessage !== "";
+    },
+    isAnyFieldEmpty() {
+      return (
+        this.emailValue === "" ||
+        this.passwordValue === "" ||
+        this.confirmPasswordValue === ""
+      );
+    },
+  },
+  methods: {
+    validate() {
+      if (!this.isValidEmail(this.emailValue)) {
+        this.errorMessage = "Correo electrónico inválido";
+      } else if (this.passwordValue !== this.confirmPasswordValue) {
+        this.errorMessage = "Las contraseñas no coinciden";
+      } else {
+        this.errorMessage = "";
+      }
+    },
+    isValidEmail(email) {
+      // Validación del correo electrónico mediante una expresión regular
+      const emailRegex = new RegExp("[^\\s@]+@[^\\s@]+\\.[^\\s@]+");
+      return emailRegex.test(email);
+    },
+    subscribe() {
+      // Lógica para suscribirse
+      alert("Solicitud enviada. (En implementación con firebase aún)");
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -202,6 +188,14 @@ input {
   .error-message {
     color: red;
     margin-top: 0.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background: rgba(36, 174, 224, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
   }
 
   .submit-button {

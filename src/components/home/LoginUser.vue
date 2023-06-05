@@ -1,19 +1,21 @@
-<!-- LoginUser.vue -->
 <template>
   <div class="home">
-    <div class="bg-amber-900/60 topBackGround w-full">
+    <div class="bg-amber-900/60 topBackGround w-full max-h-80">
       <div
         class="flex flex-wrap flex-col xl:relative xl:bottom-4 xl:gap-y-6 formWrapp"
       >
         <div class="flex-auto mx-auto">
           <h3
-            class="text-4xl font-bold text-white animate__animated animate__fadeIn"
+            class="text-4xl font-bold text-white animate__animated animate__fadeIn relative bottom-4"
           >
             {{ biendenivda1 }}
             <br />
           </h3>
         </div>
-        <div class="mx-auto z-30 animate__animated animate__fadeIn">
+        <div
+          class="relative lg:right-8 lg:mx-auto z-30 lg:mb-16 w-screen px-6 mt-4"
+        >
+          <!-- Aquí se renderiza el componente FormInput.vue -->
           <FormLogin />
         </div>
       </div>
@@ -28,7 +30,7 @@
     <img
       class="flex-auto rounded-full animate__animated animate__fadeIn animate__slower drop-shadow-xl z-0"
       alt="registrate"
-      src="@/assets/img/working.jpg"
+      src="https://i.imgur.com/NTRJiBdh.jpg"
     />
   </div>
 </template>
@@ -48,6 +50,12 @@ export default defineComponent({
     return {
       /* Bienvenida */
       biendenivda1: "Login",
+      /* texto descriptivo */
+      beforeText: "Descubre una forma ",
+      emphasizedText: "sencilla y eficiente",
+      middleText: "de organizar tus tareas.",
+      endText:
+        "Regístrate y comienza a crear tu lista personalizada de tareas pendientes y tareas realizadas. Podrás establecer la prioridad de cada tarea y realizar un seguimiento de tus avances.",
     };
   },
 });
@@ -60,35 +68,39 @@ img {
   left: 6rem;
   transform: scale(0.65);
 }
-
 .formWrapp {
   position: relative;
   top: 4rem;
   row-gap: 4rem;
 }
 
-@media only screen and (max-width: 1575px) {
-  h3 {
-    margin: 2rem 0;
-  }
-
+/* Media queries para tablet */
+@media (max-width: 1024px) {
   img {
     position: absolute;
     bottom: -16rem;
     left: 6rem;
     transform: scale(0.6);
   }
-
   .formWrapp {
     position: relative;
     bottom: 2rem;
     row-gap: 1rem;
   }
-
   .imgWrapper {
     position: relative;
     bottom: 43rem;
     right: 0rem;
+  }
+}
+
+/* Media queries para celular */
+@media (max-width: 640px) {
+  img {
+    display: none;
+  }
+  .formWrapp {
+    top: 2rem;
   }
 }
 </style>

@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script defer lang="ts">
 import { defineComponent } from "vue";
 // import HelloWorld from "@/components/HelloWorld.vue"; @ is an alias to /src
 import HomePage from "@/components/home/HomePage.vue";
